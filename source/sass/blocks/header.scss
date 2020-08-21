@@ -1,0 +1,149 @@
+.header {
+  padding-top: 33px;
+  padding-bottom: 10px;
+
+  background-color: $dark;
+
+  @media #{$tablet-width} {
+    padding-top: 21px;
+    padding-bottom: 5px;
+  }
+
+  @media #{$mobile-width} {
+    padding-top: 17px;
+  }
+}
+
+.header__container {
+  @include container;
+  padding-right: 45px;
+  padding-left: 43px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media #{$tablet-width} {
+    padding-right: 16px;
+    padding-left: 25px;
+  }
+
+  @media #{$mobile-width} {
+    padding-right: 5px;
+    padding-left: 17px;
+  }
+}
+
+.header__logo img {
+  @include size(202px, 52px);
+
+  @media #{$mobile-width} {
+    @include size(38px, 38px);
+  }
+}
+
+.header__info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  min-width: 47%;
+  padding-top: 4px;
+
+  @media #{$tablet-width} {
+    min-width: auto;
+  }
+}
+
+.header__contacts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 13px;
+
+  @media #{$tablet-width} {
+    padding-top: 8px;
+  }
+
+  @media #{$mobile-width} {
+    padding-top: 2px;
+  }
+}
+
+.header__email,
+.header__phone {
+  position: relative;
+
+  padding-left: 43px;
+
+  @include font(400, 16px, 18px, $font-ptmono);
+  color: #ffffff;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+  }
+}
+
+.header__email {
+  margin-right: 10px;
+
+  &::before {
+    top: 2px;
+    left: 4px;
+
+    @include size(19px, 14px);
+
+    background: $dark url("../../img/icon-email.svg") no-repeat 0 0;
+    background-size: contain;
+  }
+
+  @media #{$tablet-width} {
+    &::before {
+      @include size(25px, 19px);
+    }
+  }
+
+  @media #{$mobile-width} {
+    margin-right: 0;
+  }
+}
+
+.header__phone {
+  white-space: nowrap;
+
+  &::before {
+    top: 0;
+    left: 9px;
+
+    @include size(18px, 18px);
+
+    background: $dark url("../../img/icon-phone.svg") no-repeat 0 0;
+    background-size: contain;
+  }
+
+  @media #{$tablet-width} {
+    &::before {
+      @include size(24px, 24px);
+    }
+  }
+}
+
+.header__button {
+  min-width: 180px;
+  height: fit-content;
+  margin-left: 50px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+
+  @include font(700, 14px, 16px, $font-robotoCon);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+
+  @media #{$tablet-width} {
+    display: none;
+  }
+}

@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Стартовый шаблон</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Smart Device</title>
+  <link href="css/style.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Добро пожаловать в Лигу А.</h1>
+  <div style="display: none;">
+    <include src="build/img/sprite_auto.svg"></include>
+  </div>
+  <header class="header">
+    <div class="header__container">
+      <a class="header__logo">
+        <picture>
+          <!-- 1x: 38px; 2x: 76px -->
+          <source media="(max-width: 767px)" srcset="img/icon-header-logo-mobile.svg" type="image/svg+xml">
+
+          <!-- 1x: 202px; 2x: 404px -->
+          <img src="img/icon-header-logo-desktop.svg" width="202" height="52" alt="Логотип компании">
+        </picture>
+      </a>
+      <div class="header__info-wrapper">
+        <div class="header__contacts-wrapper">
+          <a class="header__email" href="mailto:info@sd.ru">info@sd.ru</a>
+          <a class="header__phone" href="tel:+74950005252">+7 (495) 000 52 52</a>
+        </div>
+        <button class="header__button" type="button">Заказать звонок</button>
+      </div>
+    </div>
+  </header>
+  <script src="js/main.js"></script>
 </body>
 </html>
