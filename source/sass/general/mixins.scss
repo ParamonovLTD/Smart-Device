@@ -1,0 +1,75 @@
+@mixin font($font-weight, $font-size, $line-height, $font) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin clear-block {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin clear-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+@mixin title {
+  @include clear-block;
+  @include font(600, 28px, 42px, $font-montserrat);
+  text-align: center;
+  color: $dark;
+
+  @media #{$tablet-width} {
+    font-size: 26px;
+    line-height: 39px;
+  }
+
+  @media #{$mobile-width} {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+
+@mixin container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-right: 177px;
+  padding-left: 177px;
+
+  @media #{$tablet-width} {
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+
+  @media #{$mobile-width} {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
