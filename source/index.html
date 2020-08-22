@@ -31,6 +31,34 @@
       </div>
     </div>
   </header>
+
+  <main>
+    <section class="preview">
+      <div class="preview__container">
+        <div class="preview__info-wrapper">
+          <h1>Печатные платы</h1>
+          <div class="preview__text-wrapper">
+            <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
+            <a class="preview__link" href="">Получить бесплатную консультацию</a>
+          </div>
+          <a class="preview__scroll-link" href="">Скролл вниз</a>
+        </div>
+        <div class="preview__img-wrapper">
+          <picture>
+            <!-- 1x: 38px; 2x: 76px -->
+            <source media="(max-width: 767px)" srcset="img/boards-mobile@1x.webp 1x, img/boards-mobile@2x.webp 2x" type="image/webp">
+            <!-- 1x: 38px; 2x: 76px -->
+            <source media="(max-width: 1023px)" srcset="img/boards-tablet@1x.webp 1x, img/boards-tablet@2x.webp 2x" type="image/webp">
+            <!-- 1x: 705px; 2x: 1410px -->
+            <source srcset="img/boards-desktop@1x.webp 1x, img/boards-desktop@2x.webp 2x" type="image/webp">
+
+            <!-- 1x: 705px; 2x: 1410px -->
+            <img src="img/boards-desktop@1x.png 1x" srcset="img/boards-desktop@2x.png 2x" width="705" height="515" alt="Печатные платы">
+          </picture>
+        </div>
+      </div>
+    </section>
+  </main>
   <script src="js/main.js"></script>
 </body>
 </html>

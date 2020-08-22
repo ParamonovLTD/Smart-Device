@@ -4,19 +4,28 @@
 const body = document.body;
 const header = document.querySelector('.header');
 const headerLinks = document.querySelectorAll('.header__contacts-wrapper > a');
-console.log(headerLinks);
+const previewLink = document.querySelector('.preview__link');
+
 function onJSLoad () {
+
 }
 onJSLoad();
 
 function onTabletWidth () {
-  if (window.matchMedia("(max-width: 1023px)").matches) {
+  if (window.matchMedia('(max-width: 1023px)').matches) {
     headerLinks.forEach((link) => {
-      link.textContent = "";
-    })
+      link.textContent = '';
+    });
   }
 }
 onTabletWidth();
+
+function onMobileWidth () {
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    previewLink.textContent = 'Бесплатная консультация';
+  }
+}
+onMobileWidth();
 
 // function onDOMLoaded () {
 //   const telInputs = document.querySelectorAll('input[type="tel"]');

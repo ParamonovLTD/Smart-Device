@@ -2,8 +2,6 @@
   padding-top: 33px;
   padding-bottom: 10px;
 
-  background-color: $dark;
-
   @media #{$tablet-width} {
     padding-top: 21px;
     padding-bottom: 5px;
@@ -15,6 +13,9 @@
 }
 
 .header__container {
+  position: relative;
+  z-index: 2;
+
   @include container;
   padding-right: 45px;
   padding-left: 43px;
