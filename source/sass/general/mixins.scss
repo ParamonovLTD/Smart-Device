@@ -43,8 +43,8 @@
 @mixin container {
   max-width: 1500px;
   margin: 0 auto;
-  padding-right: 140px;
-  padding-left: 140px;
+  padding-right: 165px;
+  padding-left: 165px;
 
   @media #{$tablet-width} {
     padding-right: 25px;
