@@ -1,0 +1,87 @@
+.service {
+  position: relative;
+
+  @include size(370px, 620px);
+  display: block;
+  max-width: 100%;
+  padding-top: 51px;
+  padding-left: 44px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  &:hover {
+    outline: 2px solid $blue;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @include size(63px, 63px);
+
+    background: $blue url("../../img/icon-arrow.svg") no-repeat 31px 27px;
+  }
+
+  @media #{$tablet-width} {
+    @include size(715px, 256px);
+    padding-top: 40px;
+
+    &--LED {
+      padding-top: 50px;
+      padding-left: 46px;
+    }
+  }
+
+  @media #{$mobile-width} {
+    padding-top: 20px;
+    padding-left: 35px;
+
+
+    &--LED {
+      padding-top: 30px;
+    }
+
+    &::after {
+      background-position: 28px 27px;
+    }
+  }
+}
+
+.service:hover img {
+  opacity: 0.5;
+
+  transform: scale(1.05);
+}
+
+.service h3 {
+  position: relative;
+  z-index: 1;
+
+  @include clear-block;
+  max-width: 165px;
+
+  @include font(400, 20px, 30px, $font-robotoCon);
+  color: #ffffff;
+}
+
+.service img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include size(370px, 620px);
+  max-width: 100%;
+
+  opacity: 0.2;
+
+  transition: 0.5s;
+
+  @media #{$tablet-width} {
+    @include size(715px, 256px);
+  }
+}

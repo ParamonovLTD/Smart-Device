@@ -25,6 +25,7 @@
 @mixin title {
   @include clear-block;
   @include font(400, 36px, 51px, $font-robotoCon);
+  color: #ffffff;
 
   @media #{$tablet-width} {
     font-size: 32px;
