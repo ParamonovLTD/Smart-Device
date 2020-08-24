@@ -1,0 +1,170 @@
+.about {
+  padding-top: 56px;
+  padding-bottom: 111px;
+
+  @media #{$tablet-width} {
+    padding-top: 26px;
+    padding-bottom: 83px;
+  }
+
+  @media #{$mobile-width} {
+    padding-top: 15px;
+    padding-bottom: 66px;
+  }
+}
+
+.about__container {
+  position: relative;
+
+  @include container;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: -401px;
+    left: -210px;
+    z-index: -1;
+
+    @include size(636px, 640px);
+
+    background: #ffffff url("../../img/triangle-bg-dots.svg") no-repeat 0 0;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: -401px;
+    right: 1px;
+    z-index: -1;
+
+    @include size(298px, 298px);
+
+    background: #ffffff url("../../img/triangle-bg.svg") no-repeat 0 0;
+  }
+
+  @media #{$tablet-width} {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.about__text-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  padding-left: 180px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 5px;
+    left: -30px;
+    z-index: -1;
+
+    @include size(220px, 317px);
+
+    background: #ffffff url("../../img/about-img-desktop@1x.png") no-repeat 0 0;
+  }
+
+  @media #{$tablet-width} {
+    padding-left: 185px;
+
+    &::before {
+      top: -2px;
+      left: -25px;
+
+      @include size(251px, 362px);
+
+      background-image: url("../../img/about-img-tablet@1x.png");
+    }
+  }
+
+  @media #{$mobile-width} {
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.about__text-wrapper h2 {
+  @include title;
+  margin-bottom: 21px;
+
+  color: $grey;
+
+  @media #{$tablet-width} {
+    margin-bottom: 25px;
+  }
+
+  @media #{$mobile-width} {
+    margin-bottom: 21px;
+  }
+}
+
+.about__text-wrapper p {
+  @include clear-block;
+  max-width: 975px;
+  margin-bottom: 39px;
+
+  @include font(400, 16px, 22px, $font-ptmono);
+  color: $grey;
+
+  &:first-of-type {
+    margin-bottom: 20px;
+  }
+
+  @media #{$tablet-width} {
+    margin-bottom: 42px;
+    padding-left: 3px;
+  }
+
+  @media #{$mobile-width} {
+    margin-bottom: 29px;
+    padding-left: 2px;
+
+    &:first-of-type {
+      margin-bottom: 39px;
+    }
+  }
+}
+
+.about__button {
+  width: 180px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+
+  @include font(700, 14px, 16px, $font-robotoCon);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $blue;
+
+  background-color: #ffffff;
+  border: 1px solid $blue;
+  border-radius: 5px;
+
+  transition: 0.5s;
+
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+
+    background-color: $blue;
+  }
+
+  @media #{$tablet-width} {
+    position: relative;
+    left: 3px;
+  }
+}

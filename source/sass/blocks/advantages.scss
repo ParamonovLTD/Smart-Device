@@ -1,15 +1,30 @@
 .advantages {
-  position: relative;
-
   padding-top: 112px;
   padding-bottom: 50px;
+
+  @media #{$tablet-width} {
+    padding-top: 54px;
+    // padding-bottom: 30px;
+    padding-bottom: 71px;
+  }
+
+  @media #{$mobile-width} {
+    padding-top: 37px;
+    padding-bottom: 15px;
+  }
+}
+
+.advantages__container {
+  position: relative;
+
+  @include container;
 
   &::before {
     content: "";
 
     position: absolute;
-    top: -51px;
-    left: 202px;
+    top: -68px;
+    left: -11px;
     z-index: -1;
 
     @include size(298px, 298px);
@@ -33,10 +48,6 @@
   }
 
   @media #{$tablet-width} {
-    padding-top: 54px;
-    // padding-bottom: 30px;
-    padding-bottom: 71px;
-
     overflow: hidden;
 
     &::before {
@@ -50,18 +61,11 @@
   }
 
   @media #{$mobile-width} {
-    padding-top: 37px;
-    padding-bottom: 30px;
-
     &::after {
       top: 322px;
       left: 151px;
     }
   }
-}
-
-.advantages__container {
-  @include container;
 }
 
 .advantages__container h2 {

@@ -5,17 +5,28 @@ const body = document.body;
 const header = document.querySelector('.header');
 const headerLinks = document.querySelectorAll('.header__contacts-wrapper > a');
 const previewLink = document.querySelector('.preview__link');
+const aboutTextes = document.querySelectorAll('.about__text-wrapper p');
+
 
 function onJSLoad () {
 
 }
 onJSLoad();
 
+
+function textClamp (strokeHeight) {
+  aboutTextes.forEach((paragraph) => {
+    $clamp(paragraph, {clamp: strokeHeight});
+  })
+}
+
+
 function onTabletWidth () {
   if (window.matchMedia('(max-width: 1023px)').matches) {
     headerLinks.forEach((link) => {
       link.textContent = '';
     });
+    textClamp(4);
   }
 }
 onTabletWidth();
@@ -23,9 +34,11 @@ onTabletWidth();
 function onMobileWidth () {
   if (window.matchMedia('(max-width: 767px)').matches) {
     previewLink.textContent = 'Бесплатная консультация';
+    textClamp(8);
   }
 }
 onMobileWidth();
+
 
 // function onDOMLoaded () {
 //   const telInputs = document.querySelectorAll('input[type="tel"]');

@@ -24,18 +24,16 @@
 
 @mixin title {
   @include clear-block;
-  @include font(600, 28px, 42px, $font-montserrat);
-  text-align: center;
-  color: $dark;
+  @include font(400, 36px, 51px, $font-robotoCon);
 
   @media #{$tablet-width} {
-    font-size: 26px;
-    line-height: 39px;
+    font-size: 32px;
+    line-height: 45px;
   }
 
   @media #{$mobile-width} {
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 28px;
+    line-height: 39px;
   }
 }
 
