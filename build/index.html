@@ -243,6 +243,41 @@
         </ul>
       </div>
     </section>
+
+    <section class="feedback">
+      <div class="feedback__container">
+        <div class="feedback__content-wrapper">
+          <h2>Остались вопросы? Задайте их нам!</h2>
+          <p>Мы проконсультируем Вас бесплатно</p>
+          <div class="feedback__form-wrapper">
+            <form class="feedback__form form" method="post" action="">
+              <div class="form__inputs-wrapper">
+                <div class="form__input-control">
+                  <small>Текст ошибки</small>
+                  <input type="text" name="Name" placeholder="Имя" required="">
+                </div>
+                <div class="form__input-control">
+                  <small>Текст ошибки</small>
+                  <input type="tel" name="Phonenumber" placeholder="Телефон" required="">
+                </div>
+              </div>
+              <div class="form__textarea-control">
+                <small>Текст ошибки</small>
+                <textarea name="Question" placeholder="Ваш вопрос" required=""></textarea>
+              </div>
+              <div class="form__submit-wrapper">
+                <input type="submit" value="Задать вопрос">
+                <div class="form__check-control">
+                  <small>Текст ошибки</small>
+                  <input id="main-form-check" name="Personal data" type="checkbox" required="">
+                  <label for="main-form-check">Я согласен на обработку персональных данных</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
