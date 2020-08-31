@@ -1,0 +1,16 @@
+.show {
+  @media #{$mobile-width} {
+    max-height: 700px;
+    padding-bottom: 13px;
+
+    transition: max-height 0.4s ease, padding-bottom 0.4s step-start;
+
+    &::before {
+      top: 36px;
+
+      @include size(16px, 2px);
+
+      background-image: url("../../img/icon-minus.svg");
+    }
+  }
+}

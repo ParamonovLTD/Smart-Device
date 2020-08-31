@@ -1,0 +1,51 @@
+.nav {
+  width: 82.2%;
+
+  @media #{$mobile-width} {
+    position: relative;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding-bottom 0.4s step-end;
+
+    // &::after {
+    //   content: "";
+
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+
+    //   @include size(16px, 16px);
+
+    //   background: #ffffff url('../../img/icon-plus.svg') no-repeat 0 0;
+    // }
+  }
+}
+
+.nav__list {
+  @include clear-list;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 110px;
+
+  @media #{$tablet-width} {
+    flex-wrap: nowrap;
+    max-height: none;
+  }
+}
+
+.nav__item {
+  white-space: nowrap;
+
+  &:not(:nth-of-type(n + 5)) {
+    margin-right: 15px;
+  }
+}
+
+.nav__link {
+  @include font(400, 15px, 25px, $font-ptmono);
+  color: $dark;
+
+  opacity: 0.5;
+}

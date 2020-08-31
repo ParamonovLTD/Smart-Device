@@ -1,0 +1,22 @@
+.social {
+  @include clear-list;
+  display: flex;
+  justify-content: space-between;
+  width: 112px;
+
+  @media #{$tablet-width} {
+    padding-top: 12px;
+  }
+}
+
+.social__item {
+
+}
+
+.social__link {
+
+}
+
+.social__icon {
+  @include size(27px, 27px);
+}

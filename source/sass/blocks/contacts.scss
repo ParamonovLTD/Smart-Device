@@ -1,0 +1,84 @@
+.contacts {
+  @media #{$tablet-width} {
+    padding-right: 11px;
+  }
+
+  @media #{$mobile-width} {
+    position: relative;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 30px;
+      right: 2px;
+
+      @include size(16px, 16px);
+
+      background: #ffffff url("../../img/icon-plus.svg") no-repeat 0 0;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+      left: -15px;
+
+      @include size(100vw, 1px);
+
+      background-color: #626962;
+
+      opacity: 0.2;
+    }
+  }
+
+  @media #{$mobile-width} {
+    transition: padding-bottom 0.4s step-end;
+  }
+}
+
+.contacts h3 {
+  @include clear-block;
+  margin-bottom: 25px;
+
+  @include font(400, 15px, 16px, $font-robotoCon);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $dark;
+
+  @media #{$mobile-width} {
+    margin-bottom: 0;
+    padding-top: 29px;
+    padding-bottom: 32px;
+  }
+}
+
+.contacts__item address {
+  @include font(400, 15px, 25px, $font-ptmono);
+  font-style: normal;
+  color: $dark;
+
+  opacity: 0.5;
+}
+
+.contacts__list {
+  @include clear-list;
+  display: flex;
+  flex-direction: column;
+
+  @media #{$mobile-width} {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: max-height 0.4s ease, padding-bottom 0.4s step-end;
+  }
+}
+
+.contacts__link {
+  @include font(400, 15px, 25px, $font-ptmono);
+  color: $dark;
+
+  opacity: 0.5;
+}

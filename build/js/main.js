@@ -3,9 +3,6 @@
 (function () {
 const body = document.body;
 const header = document.querySelector('.header');
-const headerLinks = document.querySelectorAll('.header__contacts-wrapper > a');
-const previewLink = document.querySelector('.preview__link');
-const aboutTextes = document.querySelectorAll('.about__text-wrapper p');
 
 
 function onJSLoad () {
@@ -14,26 +11,48 @@ function onJSLoad () {
 onJSLoad();
 
 
+function removeLinksText () {
+  const headerLinks = document.querySelectorAll('.header__contacts-wrapper > a');
+
+  headerLinks.forEach((link) => {
+    link.textContent = '';
+  });
+}
+
+function buttonTextChange () {
+  const previewLink = document.querySelector('.preview__link');
+
+  previewLink.textContent = 'Бесплатная консультация';
+}
+
 function textClamp (strokeHeight) {
+  const aboutTextes = document.querySelectorAll('.about__text-wrapper p');
+
   aboutTextes.forEach((paragraph) => {
     $clamp(paragraph, {clamp: strokeHeight});
   })
 }
 
+function moveFooterText () {
+  const footerYearsText = document.querySelector('.footer__years-wrapper');
+  const footerLogo = document.querySelector('.footer__logo');
+
+  footerLogo.after(footerYearsText);
+}
+
 
 function onTabletWidth () {
   if (window.matchMedia('(max-width: 1023px)').matches) {
-    headerLinks.forEach((link) => {
-      link.textContent = '';
-    });
+    removeLinksText();
     textClamp(4);
+    moveFooterText();
   }
 }
 onTabletWidth();
 
 function onMobileWidth () {
   if (window.matchMedia('(max-width: 767px)').matches) {
-    previewLink.textContent = 'Бесплатная консультация';
+    buttonTextChange();
     textClamp(8);
   }
 }
@@ -57,29 +76,6 @@ function DOMLoaded () {
   document.addEventListener('DOMContentLoaded', onDOMLoaded);
 }
 DOMLoaded();
-
-
-// function menuToggle () {
-//   headerNav.classList.toggle('nav--opened');
-//   headerBurger.classList.toggle('header__burger--opened');
-//   headerLogo.classList.toggle('header__logo-img--light');
-// }
-
-// headerBurger.addEventListener('click', menuToggle);
-
-
-// function onMenuFullWidth () {
-//   if (document.documentElement.clientWidth === headerNav.offsetWidth) {
-//     body.classList.add('body--scroll-locked');
-//   } else {
-//     body.classList.remove('body--scroll-locked');
-//   }
-// }
-
-// function menuFullWidth () {
-//   headerBurger.addEventListener('click', onMenuFullWidth);
-// }
-// menuFullWidth();
 
 
 function smoothAnimationForAnchors () {
@@ -115,8 +111,40 @@ function numberMaskSet() {
 numberMaskSet();
 
 
-const feedback = document.querySelector('.feedback');
+function accordion () {
+  const accordion = document.querySelector('.footer__inner-wrapper');
+  const titles = accordion.querySelectorAll('.footer__inner-wrapper h3');
+  const footerNav = accordion.querySelector('.nav');
+  const footerContacts = accordion.querySelector('.contacts__list');
+  const lists = [footerNav, footerContacts];
 
+
+  titles.forEach((title) => {
+    title.addEventListener('click', (evt) => {
+      if (evt.target !== title) {
+        return;
+      }
+      evt.preventDefault();
+
+      let accordionItem = title.parentElement;
+
+      lists.forEach((list) => {
+        if ((!accordionItem.contains(list)) && (list.classList.contains('show'))) {
+          list.parentElement.classList.remove('show');
+          list.classList.remove('show');
+        }
+        if (accordionItem.contains(list)) {
+          accordionItem.classList.toggle('show');
+          list.classList.toggle('show');
+        }
+      })
+    })
+  })
+}
+accordion();
+
+
+const feedback = document.querySelector('.feedback');
 
 function formValidityCheck (currentFormWrapper) {
   const currentForm = currentFormWrapper.querySelector('form');
