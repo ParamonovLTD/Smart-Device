@@ -7,18 +7,6 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, padding-bottom 0.4s step-end;
-
-    // &::after {
-    //   content: "";
-
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-
-    //   @include size(16px, 16px);
-
-    //   background: #ffffff url('../../img/icon-plus.svg') no-repeat 0 0;
-    // }
   }
 }
 
@@ -48,4 +36,8 @@
   color: $dark;
 
   opacity: 0.5;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }

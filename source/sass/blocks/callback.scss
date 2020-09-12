@@ -1,0 +1,71 @@
+.callback {
+  // @include size()
+  width: 490px;
+  padding-top: 30px;
+  padding-right: 39px;
+  padding-bottom: 35px;
+  padding-left: 39px;
+}
+
+.callback h2 {
+  @include clear-block;
+  margin-bottom: 13px;
+
+  @include font(400, 28px, 39px, $font-robotoCon);
+  color: #ffffff;
+}
+
+.callback p {
+  @include clear-block;
+  max-width: 380px;
+  margin-bottom: 30px;
+
+  @include font(400, 16px, 22px, $font-ptmono);
+  color: #ffffff;
+}
+
+.callback__form .form__input-control {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.callback__form input[type="text"],
+.callback__form textarea {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.callback__form .form__textarea-control {
+  margin-bottom: 26px;
+}
+
+.callback__form textarea {
+  height: 104px;
+}
+
+.callback__form .form__submit-wrapper {
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.callback__form input[type="submit"] {
+  width: 100%;
+  margin-bottom: 27px;
+}
+
+.callback__form .form__check-control {
+  max-width: 360px;
+  padding-left: 48px;
+
+  &::before {
+    top: 2px;
+    left: -48px;
+  }
+}
+
+.callback__form label[for="callback-check"] {
+  &::before {
+    top: 2px;
+    left: -48px;
+  }
+}

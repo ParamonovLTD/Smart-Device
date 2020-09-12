@@ -105,6 +105,8 @@
   padding-top: 9px;
   padding-bottom: 11px;
 
+  resize: none;
+
   @media #{$tablet-width} {
     height: 158px;
     padding-top: 12px;

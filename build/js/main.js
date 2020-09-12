@@ -1,14 +1,78 @@
 'use strict';
 
 (function () {
+const escKeyCode = 27;
+const enterKeyCode = 13;
 const body = document.body;
-const header = document.querySelector('.header');
 
 
-function onJSLoad () {
-
+function isEnterEvent (evt, cb) {
+  if (evt.keyCode === enterKeyCode) {
+    cb();
+  }
 }
-onJSLoad();
+function isEscapeEvent (evt, cb) {
+  if (evt.keyCode === escKeyCode) {
+    cb();
+  }
+}
+
+
+const popupCallback = document.querySelector('.callback');
+const popupCallbackCloseButton = popupCallback.querySelector('.popup__close');
+
+function onPopupCallbackEscapePress (evt) {
+  isEscapeEvent(evt, onPopupCallbackClose);
+}
+function onButtonEnterPress (evt) {
+  isEnterEvent(evt, onPopupCallbackOpen);
+}
+function onPopupCallbackOverlayClick (evt) {
+  if (!evt.target.closest('.callback')) {
+    onPopupCallbackClose();
+  }
+}
+
+
+function onPopupCallbackOpen (evt) {
+  evt.preventDefault();
+
+  const formNameInput = popupCallback.querySelector('.form__input-control input[name="Name"]');
+
+  popupCallback.classList.add('popup--opened');
+  setTimeout(popupCallbackClose, 100);
+
+  body.classList.add('body--scroll-locked');
+  formNameInput.focus();
+}
+
+
+function popupCallbackOpen () {
+  const headerButton = document.querySelector('.header__button');
+
+  headerButton.addEventListener('click', onPopupCallbackOpen);
+  headerButton.addEventListener('keydown', onButtonEnterPress);
+}
+popupCallbackOpen();
+
+
+function onPopupCallbackClose () {
+  if (popupCallback) {
+    popupCallback.classList.remove('popup--opened');
+    body.classList.remove('body--scroll-locked');
+  }
+
+  popupCallbackCloseButton.removeEventListener('click', onPopupCallbackClose);
+  document.removeEventListener('click', onPopupCallbackOverlayClick);
+  window.removeEventListener('keydown', onPopupCallbackEscapePress);
+}
+
+
+function popupCallbackClose () {
+  popupCallbackCloseButton.addEventListener('click', onPopupCallbackClose);
+  document.addEventListener('click', onPopupCallbackOverlayClick);
+  window.addEventListener('keydown', onPopupCallbackEscapePress);
+}
 
 
 function removeLinksText () {
@@ -62,12 +126,16 @@ onMobileWidth();
 function onDOMLoaded () {
   const telInputs = document.querySelectorAll('input[type="tel"]');
   const nameInputs = document.querySelectorAll('input[name="Name"]');
+  const questionInputs = document.querySelectorAll('textarea[name="Question"]');
 
   telInputs.forEach((telInput) => {
     telInput.value = JSON.parse(localStorage.getItem('phoneNumber'));
   })
   nameInputs.forEach((nameInput) => {
     nameInput.value = JSON.parse(localStorage.getItem('Name'));
+  })
+  questionInputs.forEach((questionInput) => {
+    questionInput.value = JSON.parse(localStorage.getItem('Question'));
   })
 }
 
@@ -101,7 +169,7 @@ function numberMaskSet() {
   const telInput = document.querySelectorAll('.form input[type="tel"]');
 
   telInput.forEach(function (it) {
-    Inputmask("+7 999 999 99 99", {
+    Inputmask("+7 (999) 999 99 99", {
       placeholder: '',
       showMaskOnHover: false,
       showMaskOnFocus: false
@@ -156,30 +224,35 @@ function formValidityCheck (currentFormWrapper) {
     if (formInputsValidityCheck(currentForm)) {
       const currentTelInputValue = currentForm.querySelector('input[type="tel"]').value;
       const currentNameInputValue = currentForm.querySelector('input[name="Name"]').value;
+      const currentQuestionInputValue = currentForm.querySelector('textarea[name="Question"]').value;
 
       currentForm.reset();
       localStorage.setItem('phoneNumber', JSON.stringify(currentTelInputValue));
       localStorage.setItem('Name', JSON.stringify(currentNameInputValue));
+      localStorage.setItem('Question', JSON.stringify(currentQuestionInputValue));
+
+      if (popupCallback) {
+        onPopupCallbackClose();
+      }
     }
   });
 }
 formValidityCheck(feedback);
+formValidityCheck(popupCallback);
+
 
 function formInputsValidityCheck (currentForm) {
   const name = currentForm.querySelector('input[name="Name"]');
   const phone = currentForm.querySelector('input[type="tel"]');
   const question = currentForm.querySelector('textarea[name="Question"]');
-  // const mail = currentForm.querySelector('input[type="email"]');
   const check = currentForm.querySelector('input[type="checkbox"]');
   const nameValue = name.value.trim();
   const phoneValue = phone.value.trim();
   const questValue = question.value.trim();
-  // const mailValue = mail.value.trim();
   let phoneValueSplited;
   let isNameValid = false;
   let isPhoneValid = false;
   let isQuestValid = false;
-  // let isMailValid = true;
   let isChecked = false;
 
   if (phoneValue) {
@@ -202,15 +275,7 @@ function formInputsValidityCheck (currentForm) {
     setSuccessFor(phone);
   }
 
-  // if (!mailValue.includes('@') || mailValue === '') {
-  //   isMailValid = false;
-  //   setErrorFor(mail, 'Данные не верны');
-  // } else {
-  //   setSuccessFor(mail);
-  // }
-  //
-
-  if (!questValue === '') {
+  if (questValue !== '') {
     isQuestValid = true;
     setSuccessFor(question);
   } else {

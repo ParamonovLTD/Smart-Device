@@ -4,8 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Производство и монтаж печатных плат">
   <title>Smart Device</title>
+  <link href="img/favicon.png" rel="icon">
   <link href="css/style.min.css" rel="stylesheet">
+  <link rel="preload" href="fonts/robotocondensedregular.woff2" as="font" crossorigin>
+  <link rel="preload" href="fonts/robotocondensedregular.woff" as="font" crossorigin>
+  <link rel="preload" href="fonts/PTmonoregular.woff2" as="font" crossorigin>
+  <link rel="preload" href="fonts/PTmonoregular.woff" as="font" crossorigin>
+  <link rel="preload" href="fonts/robotocondensedbold.woff2" as="font" crossorigin>
+  <link rel="preload" href="fonts/robotocondensedbold.woff" as="font" crossorigin>
 </head>
 <body>
   <div style="display: none;">
@@ -24,8 +32,8 @@
       </a>
       <div class="header__info-wrapper">
         <div class="header__contacts-wrapper">
-          <a class="header__email" href="mailto:info@sd.ru">info@sd.ru</a>
-          <a class="header__phone" href="tel:+74950005252">+7 (495) 000 52 52</a>
+          <a class="header__email" href="mailto:info@sd.ru" aria-label="Написать нам на почту">info@sd.ru</a>
+          <a class="header__phone" href="tel:+74950005252" aria-label="Позвонить на горячую линию">+7 (495) 000 52 52</a>
         </div>
         <button class="header__button" type="button">Заказать звонок</button>
       </div>
@@ -39,9 +47,9 @@
           <h1>Печатные платы</h1>
           <div class="preview__text-wrapper">
             <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
-            <a class="preview__link" href="">Получить бесплатную консультацию</a>
+            <a class="preview__link" href="#feedback">Получить бесплатную консультацию</a>
           </div>
-          <a class="preview__scroll-link" href="">Скролл вниз</a>
+          <a class="preview__scroll-link" href="#advantages">Скролл вниз</a>
         </div>
         <div class="preview__img-wrapper">
           <picture>
@@ -59,7 +67,7 @@
       </div>
     </section>
 
-    <section class="advantages">
+    <section class="advantages" id="advantages">
       <div class="advantages__container">
         <h2>Преимущества</h2>
         <ul class="advantages__list">
@@ -171,26 +179,26 @@
       </div>
     </section>
 
-    <section class="feedback">
+    <section class="feedback" id="feedback">
       <div class="feedback__container">
         <div class="feedback__content-wrapper">
           <h2>Остались вопросы? Задайте их нам!</h2>
           <p>Мы проконсультируем Вас бесплатно</p>
           <div class="feedback__form-wrapper">
-            <form class="feedback__form form" method="post" action="">
+            <form class="feedback__form form" method="post" action="https://echo.htmlacademy.ru">
               <div class="form__inputs-wrapper">
                 <div class="form__input-control">
                   <small>Текст ошибки</small>
-                  <input type="text" name="Name" placeholder="Имя" required>
+                  <input type="text" name="Name" placeholder="Имя" aria-label="Поле ввода имени" required>
                 </div>
                 <div class="form__input-control">
                   <small>Текст ошибки</small>
-                  <input type="tel" name="Phonenumber" placeholder="Телефон" required>
+                  <input type="tel" name="Phonenumber" pattern="[0-9]{9,11}" placeholder="Телефон" aria-label="Поле ввода телефона" required>
                 </div>
               </div>
               <div class="form__textarea-control">
                 <small>Текст ошибки</small>
-                <textarea name="Question" placeholder="Ваш вопрос" required></textarea>
+                <textarea name="Question" placeholder="Ваш вопрос" aria-label="Поле ввода вопроса" required></textarea>
               </div>
               <div class="form__submit-wrapper">
                 <input type="submit" value="Задать вопрос">
@@ -280,6 +288,37 @@
       </div>
     </div>
   </footer>
+
+  <div class="callback popup">
+    <h2>Закажите звонок</h2>
+    <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+    <div class="callback__form-wrapper">
+      <form class="callback__form form" method="post" action="https://echo.htmlacademy.ru">
+        <div class="form__input-control">
+          <small>Текст ошибки</small>
+          <input name="Name" placeholder="Имя" type="text" aria-label="Поле ввода имени" required>
+        </div>
+        <div class="form__input-control">
+          <small>Текст ошибки</small>
+          <input name="phone" placeholder="Телефон" type="tel" pattern="[0-9]{9,11}" aria-label="Поле ввода телефона" required>
+        </div>
+        <div class="form__textarea-control">
+          <small>Текст ошибки</small>
+          <textarea name="Question" placeholder="Ваш вопрос" aria-label="Поле ввода вопроса" required></textarea>
+        </div>
+        <div class="form__submit-wrapper">
+          <input type="submit" value="Отправить">
+          <div class="form__check-control">
+            <small>Текст ошибки</small>
+            <input id="callback-check" type="checkbox" required>
+            <label for="callback-check">Я согласен на обработку  персональных данных</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+  </div>
+
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,6 +1,8 @@
 .footer {
   padding-top: 64px;
 
+  overflow: hidden;
+
   @media #{$tablet-width} {
     padding-top: 19px;
     padding-bottom: 24px;
@@ -30,9 +32,9 @@
 
     position: absolute;
     bottom: 0;
-    left: -252px;
+    left: -50%;
 
-    @include size(100vw, 1px);
+    @include size(150vw, 1px);
 
     background-color: #626962;
 
@@ -270,10 +272,16 @@
   color: $dark;
 
   opacity: 0.5;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .footer__developed-wrapper {
-  min-width: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 
   @media #{$tablet-width} {
     min-width: 192px;

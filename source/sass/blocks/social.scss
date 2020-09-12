@@ -19,4 +19,10 @@
 
 .social__icon {
   @include size(27px, 27px);
+
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }

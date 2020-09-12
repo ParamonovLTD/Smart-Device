@@ -3,6 +3,7 @@
 @import "general/variables.scss";
 @import "general/mixins.scss";
 @import "general/global.scss";
+@import "blocks/body.scss";
 @import "blocks/header.scss";
 @import "blocks/preview.scss";
 @import "blocks/advantages.scss";
@@ -16,3 +17,5 @@
 @import "blocks/nav.scss";
 @import "blocks/contacts.scss";
 @import "blocks/show.scss";
+@import "blocks/callback.scss";
+@import "blocks/popup.scss";
