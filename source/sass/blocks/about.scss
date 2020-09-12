@@ -75,6 +75,12 @@
     background: #ffffff url("../../img/about-img-desktop@1x.png") no-repeat 0 0;
   }
 
+  @media #{$retina-dppx} {
+    &::before {
+      background-image: url("../../img/about-img-desktop@2x.png");
+    }
+  }
+
   @media #{$tablet-width} {
     padding-left: 185px;
 
@@ -85,6 +91,12 @@
       @include size(251px, 362px);
 
       background-image: url("../../img/about-img-tablet@1x.png");
+    }
+
+    @media #{$retina-dppx} {
+      &::before {
+        background-image: url("../../img/about-img-tablet@2x.png");
+      }
     }
   }
 

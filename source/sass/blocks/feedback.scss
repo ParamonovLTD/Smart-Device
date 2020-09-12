@@ -4,9 +4,11 @@
   padding-top: 92px;
   padding-bottom: 113px;
 
-  // background-color: $blue;
-
   background: $blue url("../../img/paper-airplane-desktop@1x.png") no-repeat 175px -60px;
+
+  @media #{$retina-dppx} {
+    background-image: url("../../img/paper-airplane-desktop@2x.png");
+  }
 
   @media #{$tablet-width} {
     padding-top: 80px;
@@ -27,8 +29,6 @@
   @include container;
   display: flex;
   justify-content: flex-end;
-
-  // background: $blue url("../../img/paper-airplane-desktop@1x.png") no-repeat -35px -152px;
 
   &::before {
     content: "";
